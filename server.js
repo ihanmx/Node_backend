@@ -1,7 +1,52 @@
 const path=require('path')
+const express=require('express')
+const cors=require('cors')
+const {logEvents,logger}=require('./middleware/logEvents')
+const errorHandler=require('./middleware/errorhandeler')
 
 const PORT=process.env.PORT||3500
 const app=express()
+//custome middleware logger
+app.use(logger)
+//limiting access to server
+
+const whitelist=['http://yoursite.com','http://127.0.0.1:5500','http://localhost:3500']
+
+const corOptions={
+    //allows access with no origins like mobiles apps or curl
+    origin:function(origin,callback){
+        if(!origin||whitelist.indexOf(origin)!==-1){ //!origin for dev
+
+            callback(null,true) //err null
+        }else{
+            callback(new Error('not allowed by cors'))
+        }
+
+
+
+    }
+    }
+
+
+
+
+app.use(cors(corOptions)) //cross origin resource share
+
+
+
+
+//middlewares any thing between req and res 
+
+//1-built in middelwares
+//this one to handle form data
+app.use(express.urlencoded({extended:false}))
+
+//this one for json 
+app.use(express.json());
+
+//static files like img and css
+app.use(express.static(path.join(__dirname,'/public')))
+
 
 
 
@@ -13,7 +58,15 @@ const app=express()
 
 // })
 
-app.get('^/$|index(.html)?',(req,res)=>{ //^begin  $end | or()? obtional regex
+// app.get('^/$|index(.html)?',(req,res)=>{ //^begin  $end | or()? obtional regex
+
+// // res.sendFile('./views/index.html',{root:__dirname})
+// res.sendFile(path.join(__dirname,'views','index.html'))
+
+// })
+
+
+app.get(['/','/index','index.html'],(req,res)=>{ 
 
 // res.sendFile('./views/index.html',{root:__dirname})
 res.sendFile(path.join(__dirname,'views','index.html'))
@@ -23,7 +76,7 @@ res.sendFile(path.join(__dirname,'views','index.html'))
 
 
 
-app.get('/new-page(.html)?',(req,res)=>{ 
+app.get(['/new-page', '/new-page.html'],(req,res)=>{
 
 
 res.sendFile(path.join(__dirname,'views','new-page.html'))
@@ -31,7 +84,7 @@ res.sendFile(path.join(__dirname,'views','new-page.html'))
 })
 
 
-app.get('/old-page(.html)?',(req,res)=>{ 
+app.get(['/old-page', '/old-page.html'],(req,res)=>{
 
 
 res.redirect(301,'/new-page.html')//302 by default
@@ -40,7 +93,7 @@ res.redirect(301,'/new-page.html')//302 by default
 
 //handeller chaining
 
-app.get('/hello(.html)',(req,res,next)=>{
+app.get(['/hello', '/hello.html'],(req,res,next)=>{
     console.log('attempted to call hello')
     next()
 
@@ -75,20 +128,35 @@ const three=(req,res,next)=>{
 
 }
 
-app.get('/chain(.html)?',[one,two,three])
+app.get(['/chain', '/chain.html'],[one,two,three])
 
 
 
-app.get('/*',(req,res)=>{ //* mean any thing
+// app.get('/*',(req,res)=>{ //* mean any thing
 
-    res.status(404).sendFile(path.join(__dirname,'views','404.html'))
-
-
-
-})
+//     res.status(404).sendFile(path.join(__dirname,'views','404.html'))
 
 
 
+// })
+
+
+app.use((req, res) => { //accepts all err +send the res pased on clien
+res.status(404);
+
+
+if (req.accepts('html')) {
+res.sendFile(path.join(__dirname, 'views', '404.html'));
+} else if (req.accepts('json')) {
+res.json({ error: 'Not Found' });
+} else {
+res.type('txt').send('404 Not Found');
+}
+});
+
+
+
+app.use(errorHandler)
 
 
 app.listen(PORT,()=>{

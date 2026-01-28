@@ -1,5 +1,5 @@
 
-const {logEvents}=require('./logEvents');
+const {logEvents}=require('./middleware/logEvents');
 const EventEmiiter=require('events');
 const http=require('http')
 const path=require('path');

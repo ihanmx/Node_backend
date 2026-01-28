@@ -1,3 +1,9 @@
-20260128	15:47:28	7778d5df-8f6b-4924-874e-e5cc00a07471	/new-page.html	GET
-20260128	15:47:28	f86a85c6-b4c8-4867-bfab-765b28caf081	/css/style.css	GET
-20260128	15:47:28	8fe9f41b-6379-49d1-9305-0095f09b5a20	/img/img1.jpg	GET
+20260128	18:13:51	0db2d3c8-3d51-48ff-b3d5-cca13b10f773	GET	undefined	/new-page.html
+20260128	18:13:51	6f219bda-378e-49c5-b490-45345c9c67a7	GET	undefined	/css/style.css
+20260128	18:13:51	2ab6ad16-ec89-44cf-8a59-a6641a67d1e3	GET	undefined	/img/img1.jpg
+20260128	18:20:57	3ba21927-9f37-488f-8df5-ebea76066016	GET	undefined	/new-page.html
+20260128	18:20:57	e0dd1830-f83f-44c5-b423-eaf154fe7f90	GET	undefined	/css/style.css
+20260128	18:20:57	a7a2d33d-91d8-4367-a50d-d2e30da075c1	GET	undefined	/img/img1.jpg
+20260128	18:33:46	5a912fff-f88d-4568-86c3-86c07363f6bf	GET	https://www.google.com	/
+20260128	18:42:59	05ecf861-1964-4ebd-bf54-feae77e0af8c	GET	https://www.google.com	/
+20260128	18:44:32	d00f20ba-55f7-4762-a3ca-d45159803540	GET	https://www.google.com	/
