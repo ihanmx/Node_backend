@@ -1,1 +1,4 @@
 20260128	18:44:32	6b047ad1-78aa-4dba-8436-a063384fcaea	Error	not allowed by cors
+20260128	19:00:55	cf8eaa60-d376-4ea8-894b-d8998be54f1c	Error	ENOENT: no such file or directory, stat 'C:\Users\hanan\Desktop\NodeJsCrash\subdir\views\index.html'
+20260128	19:07:41	7f2bbc1d-5a0f-4dcf-adea-11306037b977	Error	ENOENT: no such file or directory, stat 'C:\Users\hanan\Desktop\NodeJsCrash\routers\views\index.html'
+20260128	19:07:43	90afb8ce-0a2c-43eb-8cf8-0c4f71dd9b06	Error	ENOENT: no such file or directory, stat 'C:\Users\hanan\Desktop\NodeJsCrash\routers\views\index.html'

@@ -7,3 +7,17 @@
 20260128	18:33:46	5a912fff-f88d-4568-86c3-86c07363f6bf	GET	https://www.google.com	/
 20260128	18:42:59	05ecf861-1964-4ebd-bf54-feae77e0af8c	GET	https://www.google.com	/
 20260128	18:44:32	d00f20ba-55f7-4762-a3ca-d45159803540	GET	https://www.google.com	/
+20260128	19:00:55	ab649bd6-d3db-4ec0-b154-0dccf5083574	GET	undefined	/subdir
+20260128	19:01:31	bf364669-9064-4c45-b934-4ce5c0f15b15	GET	undefined	/subdir
+20260128	19:03:12	e0903105-012f-441a-916a-f2c6a6fa4e10	GET	undefined	/subdir
+20260128	19:03:12	f96c4ad8-d9c5-43ed-9c18-8ad54f9b5a64	GET	undefined	/subdir/
+20260128	19:03:16	efbff2d8-aaca-45be-8150-b53b6a8c966f	GET	undefined	/subdir/ddddd
+20260128	19:03:16	e9451218-9bc8-420f-aa51-28a855376556	GET	undefined	/css/style.css
+20260128	19:07:41	92cd0312-62d2-4801-b7b0-61d90c7eb30d	GET	undefined	/
+20260128	19:07:43	f2404b0f-8c88-4f0a-8b40-9ccf73724d0b	GET	undefined	/
+20260128	19:08:12	dfe52181-45e8-457f-a6a7-05aeca43d236	GET	undefined	/
+20260128	19:08:17	f90b4400-c60d-4052-91d7-606cf31367b8	GET	undefined	/index
+20260128	19:08:22	2735c55f-959c-45b5-acfe-c45e1fca4e18	GET	undefined	/index.html
+20260128	19:08:22	eae60fa0-0366-4a4a-aa65-67d730f1debb	GET	undefined	/css/style.css
+20260128	19:08:34	6dfb32bd-2669-43e1-ba6d-3a425ae62824	GET	undefined	/index.html
+20260129	18:45:51	fa1bf942-9b38-4f29-8d0f-8ca41cf42f4f	GET	undefined	/employees
