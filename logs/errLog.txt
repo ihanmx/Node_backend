@@ -2,3 +2,15 @@
 20260128	19:00:55	cf8eaa60-d376-4ea8-894b-d8998be54f1c	Error	ENOENT: no such file or directory, stat 'C:\Users\hanan\Desktop\NodeJsCrash\subdir\views\index.html'
 20260128	19:07:41	7f2bbc1d-5a0f-4dcf-adea-11306037b977	Error	ENOENT: no such file or directory, stat 'C:\Users\hanan\Desktop\NodeJsCrash\routers\views\index.html'
 20260128	19:07:43	90afb8ce-0a2c-43eb-8cf8-0c4f71dd9b06	Error	ENOENT: no such file or directory, stat 'C:\Users\hanan\Desktop\NodeJsCrash\routers\views\index.html'
+20260201	13:52:42	93983e05-46b0-42f2-a18b-3c614f1e4e10	SyntaxError	Unexpected non-whitespace character after JSON at position 73 (line 5 column 4)
+20260201	13:52:52	29136836-2dc1-424a-b48f-44ea5515fd4e	SyntaxError	Unexpected non-whitespace character after JSON at position 72 (line 5 column 4)
+20260201	13:53:22	ce98bdd9-5a66-4d7e-9678-74ee509b9140	SyntaxError	Unexpected non-whitespace character after JSON at position 61 (line 5 column 4)
+20260201	13:53:23	aea22a14-62b6-43eb-ae1a-e444424c3099	SyntaxError	Unexpected non-whitespace character after JSON at position 61 (line 5 column 4)
+20260201	13:53:35	31ecafa1-29ec-4873-8834-554740018f54	SyntaxError	Unexpected non-whitespace character after JSON at position 71 (line 5 column 4)
+20260201	13:53:36	bc02235e-7f5b-42ef-9d61-caf3b2b93ba7	SyntaxError	Unexpected non-whitespace character after JSON at position 71 (line 5 column 4)
+20260201	13:53:36	c16d582f-4a31-4cba-af0d-924676637c20	SyntaxError	Unexpected non-whitespace character after JSON at position 71 (line 5 column 4)
+20260201	13:53:36	21372e2b-20de-408d-a3ee-abf10f48aa51	SyntaxError	Unexpected non-whitespace character after JSON at position 71 (line 5 column 4)
+20260201	13:53:36	f4e81a15-ed3b-4a23-96a2-652c0792095a	SyntaxError	Unexpected non-whitespace character after JSON at position 71 (line 5 column 4)
+20260201	13:54:22	9b6fbffc-68da-4889-91f4-83e9a03fa043	SyntaxError	Unexpected non-whitespace character after JSON at position 59 (line 4 column 4)
+20260201	13:54:23	372b5ae7-9007-4b58-a142-cd9a55523be1	SyntaxError	Unexpected non-whitespace character after JSON at position 59 (line 4 column 4)
+20260201	13:56:25	b6fb9c40-8536-46be-b3e0-47b484640d8d	SyntaxError	Expected double-quoted property name in JSON at position 49 (line 4 column 1)

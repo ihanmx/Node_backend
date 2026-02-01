@@ -3,9 +3,9 @@ const express=require('express')
 const cors=require('cors')
 const {logEvents,logger}=require('./middleware/logEvents')
 const errorHandler=require('./middleware/errorhandeler')
-const subdirRouter=require('./routers/subdir')
 const rootRouter=require('./routers/root')
 const employeesApi=require('./routers/api/employees')
+const corOptions=require('./config/corsOptions')
 
 const PORT=process.env.PORT||3500
 const app=express()
@@ -13,22 +13,6 @@ const app=express()
 app.use(logger)
 //limiting access to server
 
-const whitelist=['http://yoursite.com','http://127.0.0.1:5500','http://localhost:3500']
-
-const corOptions={
-    //allows access with no origins like mobiles apps or curl
-    origin:function(origin,callback){
-        if(!origin||whitelist.indexOf(origin)!==-1){ //!origin for dev
-
-            callback(null,true) //err null
-        }else{
-            callback(new Error('not allowed by cors'))
-        }
-
-
-
-    }
-    }
 
 
 
@@ -49,8 +33,7 @@ app.use(express.json());
 
 //static files like img and css
 app.use(express.static(path.join(__dirname,'/public')))
-//to provide subdir with public
-app.use('/subdir',express.static(path.join(__dirname,'/public')))
+
 
 
 
@@ -60,13 +43,9 @@ app.use('/subdir',express.static(path.join(__dirname,'/public')))
 
 //routes
 
-app.use('/subdir',subdirRouter)
+
 app.use('/',rootRouter)
 app.use('/employees',employeesApi)
-
-
-
-
 
 
 app.use((req, res) => { //accepts all err +send the res pased on clien
@@ -81,7 +60,6 @@ res.json({ error: 'Not Found' });
 res.type('txt').send('404 Not Found');
 }
 });
-
 
 
 app.use(errorHandler)
