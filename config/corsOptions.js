@@ -1,9 +1,8 @@
-const whitelist=['http://yoursite.com','http://127.0.0.1:5500','http://localhost:3500']
-
+const allowedOrigins=require('./allowedOrigins')
 const corOptions={
     //allows access with no origins like mobiles apps or curl
     origin:function(origin,callback){
-        if(!origin||whitelist.indexOf(origin)!==-1){ //!origin for dev
+        if(!origin||allowedOrigins.indexOf(origin)!==-1){ //!origin for dev
 
             callback(null,true) //err null
         }else{

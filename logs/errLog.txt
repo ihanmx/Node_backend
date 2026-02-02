@@ -14,3 +14,11 @@
 20260201	13:54:22	9b6fbffc-68da-4889-91f4-83e9a03fa043	SyntaxError	Unexpected non-whitespace character after JSON at position 59 (line 4 column 4)
 20260201	13:54:23	372b5ae7-9007-4b58-a142-cd9a55523be1	SyntaxError	Unexpected non-whitespace character after JSON at position 59 (line 4 column 4)
 20260201	13:56:25	b6fb9c40-8536-46be-b3e0-47b484640d8d	SyntaxError	Expected double-quoted property name in JSON at position 49 (line 4 column 1)
+20260202	13:09:06	c942818a-af3f-4a16-976a-a2e1c779aeda	ReferenceError	user is not defined
+20260202	13:10:02	ac128d2e-3f35-45ba-8ff1-42db9088064e	ReferenceError	user is not defined
+20260202	13:10:04	cd96f4ea-7548-438f-a1e6-a4cac7a8fb3a	ReferenceError	user is not defined
+20260202	13:10:05	98798d7b-3b1b-433e-862e-b4b4babf7b5e	ReferenceError	user is not defined
+20260202	13:18:18	7422935f-f5f5-424d-a711-18c0693542c9	SyntaxError	Unexpected token 'e', "eyJhbGciOi"... is not valid JSON
+20260202	13:19:01	6d36e64b-83e3-4b3d-8276-67c4a9c67b3d	TypeError	Cannot read properties of undefined (reading 'firstname')
+20260202	13:21:05	b915e58c-975f-4a56-9828-692bf454055f	SyntaxError	Expected ',' or ']' after array element in JSON at position 40 (line 1 column 41)
+20260202	14:28:32	eee49715-ea5a-4903-bd56-c90f29ec92f7	ReferenceError	refreshToken is not defined

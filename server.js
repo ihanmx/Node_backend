@@ -1,12 +1,17 @@
 const path=require('path')
 const express=require('express')
 const cors=require('cors')
+const cookieParser=require('cookie-parser')
 const {logEvents,logger}=require('./middleware/logEvents')
 const errorHandler=require('./middleware/errorhandeler')
 const rootRouter=require('./routers/root')
 const employeesApi=require('./routers/api/employees')
 const registerRouter=require('./routers/register')
 const authRouter=require('./routers/auth')
+const refreshRoute=require('./routers/refresh')
+const logoutRoute=require('./routers/logout')
+const verifyJWT=require('./middleware/verifyJWT')
+const credentials=require('./middleware/credentials')
 
 const corOptions=require('./config/corsOptions')
 
@@ -18,7 +23,7 @@ app.use(logger)
 
 
 
-
+app.use(credentials)
 
 app.use(cors(corOptions)) //cross origin resource share
 
@@ -34,6 +39,9 @@ app.use(express.urlencoded({extended:false}))
 //this one for json 
 app.use(express.json());
 
+//middleware for cookies
+app.use(cookieParser())
+
 //static files like img and css
 app.use(express.static(path.join(__dirname,'/public')))
 
@@ -48,11 +56,16 @@ app.use(express.static(path.join(__dirname,'/public')))
 
 
 app.use('/',rootRouter)
-app.use('/employees',employeesApi)
+
 app.use('/register',registerRouter)
+
 app.use('/auth',authRouter)
+//should be before the verify because it issues the access tokens when it expires
+app.use('/refresh',refreshRoute)
+app.use('/logout',logoutRoute)
 
-
+app.use(verifyJWT);//this will be applied to all routes under it
+app.use('/employees',employeesApi)
 app.use((req, res) => { //accepts all err +send the res pased on clien
 res.status(404);
 
