@@ -1,14 +1,7 @@
-const usersDB = {
-  users: require("../model/users.json"),
-  setUsers: function (data) {
-    this.users = data;
-  },
-};
-
+const User = require("../model/User");
 //this controller creates new access token
 
 const jwt = require("jsonwebtoken");
-require("dotenv").config();
 
 const handleRefreshToken = async (req, res) => {
   const cookies = req.cookies;
@@ -19,9 +12,9 @@ const handleRefreshToken = async (req, res) => {
   console.log(cookies.jwt);
   const refreshToken = cookies.jwt;
 
-  const foundUser = usersDB.users.find(
-    (person) => person.refreshToken === refreshToken,
-  ); //we stored it through auth
+  const foundUser = await User.findOne({ refreshToken: refreshToken }).exec();
+
+  //we stored it through auth
   if (!foundUser) return res.status(403).json({ message: "forbidden" }); //unaothorize
   //evaluate hashed pwd with entered one
   try {
@@ -38,7 +31,7 @@ const handleRefreshToken = async (req, res) => {
             UserInfo: { username: foundUser.username, roles: roles },
           },
           process.env.ACCESS_TOKEN_SECRET,
-          { expiresIn: "30s" },
+          { expiresIn: "5m" },
         );
 
         res.json({ accessToken });
