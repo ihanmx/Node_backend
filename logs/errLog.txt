@@ -22,3 +22,4 @@
 20260202	13:19:01	6d36e64b-83e3-4b3d-8276-67c4a9c67b3d	TypeError	Cannot read properties of undefined (reading 'firstname')
 20260202	13:21:05	b915e58c-975f-4a56-9828-692bf454055f	SyntaxError	Expected ',' or ']' after array element in JSON at position 40 (line 1 column 41)
 20260202	14:28:32	eee49715-ea5a-4903-bd56-c90f29ec92f7	ReferenceError	refreshToken is not defined
+20260203	14:34:50	734222d8-9b25-4c90-84d0-6e36819e9587	TypeError	Cannot destructure property 'user' of 'req.body' as it is undefined.
