@@ -283,3 +283,5 @@
 20260207	19:25:53	b1def6d9-c154-4e87-bbe7-6b81795dd071	GET	http://localhost:3000	/refresh
 20260207	19:25:53	373323a3-80fc-4b32-b27f-4e9085362587	GET	http://localhost:3000	/refresh
 20260207	19:27:57	b2acb50a-2ce1-452c-b07a-0c6fc244db96	GET	http://localhost:3000	/logout
+20260207	19:37:42	0f95949a-2229-41cb-a3ad-41236617950c	GET	http://localhost:3000	/refresh
+20260207	19:37:42	b1a5c5ee-ec74-4234-ad7b-90476ac6d254	GET	http://localhost:3000	/refresh

@@ -2,6 +2,7 @@ import { useRef, useState, useEffect, useContext } from "react";
 import useAuth from "../hooks/useAuth";
 import axios from "../api/axios";
 import { useNavigate, useLocation, Link } from "react-router-dom";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 const LOGIN_URL = "/auth";
 
@@ -14,7 +15,8 @@ const Login = () => {
 
   const userRef = useRef();
   const errRef = useRef();
-  const [user, setUser] = useState("");
+  const [user, setUser] = useLocalStorage("user", ""); //useLocalStorage is a custom hook that we created to manage the user state and persist it in localStorage. It returns the current value of the user and a function to update it. We initialize it with an empty string, and we use the key "user" to store it in localStorage.
+  //the state of user is inside the useLocalstorage
   const [pwd, setPwd] = useState("");
   const [errMsg, setErrMsg] = useState("");
 
@@ -107,16 +109,17 @@ const Login = () => {
           {/* router link here*/}
           <Link to="/register">Sign Up</Link>
         </span>
-        <div className="persistCheck">
-          <input
-            type="checkbox"
-            id="persist"
-            checked={persist}
-            onChange={togglePersist}
-          />
-          <label htmlFor="persist">Trust This Device</label>
-        </div>
       </p>
+
+      <div className="persistCheck">
+        <input
+          type="checkbox"
+          id="persist"
+          checked={persist}
+          onChange={togglePersist}
+        />
+        <label htmlFor="persist">Trust This Device</label>
+      </div>
     </section>
   );
 };
