@@ -3,6 +3,7 @@ import useAuth from "../hooks/useAuth";
 import axios from "../api/axios";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import useLocalStorage from "../hooks/useLocalStorage";
+import useInput from "../hooks/useInput";
 
 const LOGIN_URL = "/auth";
 
@@ -15,7 +16,9 @@ const Login = () => {
 
   const userRef = useRef();
   const errRef = useRef();
-  const [user, setUser] = useLocalStorage("user", ""); //useLocalStorage is a custom hook that we created to manage the user state and persist it in localStorage. It returns the current value of the user and a function to update it. We initialize it with an empty string, and we use the key "user" to store it in localStorage.
+  const [user, resetUser, userAttribs] = useInput("user", "");
+
+  // const [user, setUser] = useLocalStorage("user", ""); //useLocalStorage is a custom hook that we created to manage the user state and persist it in localStorage. It returns the current value of the user and a function to update it. We initialize it with an empty string, and we use the key "user" to store it in localStorage.
   //the state of user is inside the useLocalstorage
   const [pwd, setPwd] = useState("");
   const [errMsg, setErrMsg] = useState("");
@@ -44,7 +47,7 @@ const Login = () => {
       const roles = response?.data?.roles;
       setAuth({ user, pwd, roles, accessToken });
       setPwd("");
-      setUser("");
+      resetUser();
       navigate(from, { replace: true });
     } catch (err) {
       if (!err?.response) {
@@ -86,15 +89,15 @@ const Login = () => {
           id="username"
           ref={userRef}
           autoComplete="off"
-          onChange={(e) => setUser(e.target.value)}
-          value={user}
+          // onChange={(e) => setUser(e.target.value)}
+          // value={user}
+          {...userAttribs} //this gives value and on change
           required
         />
         <label htmlFor="password">Password:</label>
         <input
           type="password"
           id="password"
-          ref={userRef}
           autoComplete="off"
           onChange={(e) => setPwd(e.target.value)}
           value={pwd}
