@@ -2,13 +2,13 @@ import { useRef, useState, useEffect, useContext } from "react";
 import useAuth from "../hooks/useAuth";
 import axios from "../api/axios";
 import { useNavigate, useLocation, Link } from "react-router-dom";
-import useLocalStorage from "../hooks/useLocalStorage";
+import useToggle from "../hooks/useToggle";
 import useInput from "../hooks/useInput";
 
 const LOGIN_URL = "/auth";
 
 const Login = () => {
-  const { setAuth, persist, setPersist } = useAuth();
+  const { setAuth } = useAuth();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -22,6 +22,7 @@ const Login = () => {
   //the state of user is inside the useLocalstorage
   const [pwd, setPwd] = useState("");
   const [errMsg, setErrMsg] = useState("");
+  const [check, toggleCheck] = useToggle("persist", false);
 
   useEffect(() => {
     userRef.current.focus();
@@ -63,14 +64,6 @@ const Login = () => {
       errRef.current.focus();
     }
   };
-
-  const togglePersist = () => {
-    setPersist((prev) => !prev);
-  };
-
-  useEffect(() => {
-    localStorage.setItem("persist", JSON.stringify(persist));
-  }, [persist]);
 
   return (
     <section>
@@ -118,8 +111,8 @@ const Login = () => {
         <input
           type="checkbox"
           id="persist"
-          checked={persist}
-          onChange={togglePersist}
+          checked={check}
+          onChange={toggleCheck}
         />
         <label htmlFor="persist">Trust This Device</label>
       </div>
