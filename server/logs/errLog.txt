@@ -25,3 +25,4 @@
 20260203	14:34:50	734222d8-9b25-4c90-84d0-6e36819e9587	TypeError	Cannot destructure property 'user' of 'req.body' as it is undefined.
 20260203	19:36:23	b30d5ae6-db3d-48ec-bdc6-8eaa7142c2f3	TypeError	foundUser.save is not a function
 20260203	19:36:37	34a5ff8e-0279-4835-a85d-33b5d924fe87	TypeError	foundUser.save is not a function
+20260204	12:49:39	9410b592-1fc9-4121-be36-ab6412836301	TypeError	res.headers is not a function

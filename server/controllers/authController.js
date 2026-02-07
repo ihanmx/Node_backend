@@ -18,7 +18,7 @@ const handleLogin = async (req, res) => {
     if (match) {
       //roles === [2001, 5150];
       // ✔ You get an array of role codes
-      const roles = Object.values(foundUser.roles); //to hide the role names
+      const roles = Object.values(foundUser.roles).filter(Boolean); //to hide the role names and get only values no null
       //were to create JWTs
       //dont pass password or secure data because it is availabe
       // Access tokens are short-lived, used for accessing protected resources.
@@ -30,7 +30,7 @@ const handleLogin = async (req, res) => {
         { UserInfo: { username: foundUser.username, roles: roles } }, //no need tto send the role in refresh token
 
         process.env.ACCESS_TOKEN_SECRET,
-        { expiresIn: "5m" },
+        { expiresIn: "10s" },
       );
 
       //long
@@ -49,9 +49,9 @@ const handleLogin = async (req, res) => {
       console.log(result);
 
       res.cookie("jwt", refreshToken, {
-        // httpOnly: true, //accessible only by web server
+        httpOnly: true, //accessible only by web server
         sameSite: "None",
-        // secure: true, in production secure for https only
+        secure: true, //  in production secure for https only
         maxAge: 24 * 60 * 60 * 1000,
       });
 
@@ -66,7 +66,7 @@ const handleLogin = async (req, res) => {
       // });
       //make sure not to save in memory to not be accessed by js so use cookie
       //you have to spicify http only so it is more secure and not available to js
-      return res.json({ accessToken }); //for protecting routes
+      return res.json({ accessToken, roles }); //for protecting routes
     } else {
       return res.status(401).json({ message: "Password incorrect" });
     }
