@@ -17,8 +17,10 @@ const Users = () => {
         const response = await axiosPrivate.get("/employees", {
           signal: controller.signal,
         });
-        console.log(response.data);
-        isMounted && setUsers(response.data); //to prevent state update on unmounted component
+
+        const userNames = response.data.map((user) => user.username);
+        console.log(userNames);
+        isMounted && setUsers(userNames); //to prevent state update on unmounted component
       } catch (err) {
         if (err.name === "CanceledError") {
           return; // Ignore abort errors from cleanup
@@ -41,7 +43,7 @@ const Users = () => {
       {users?.length ? (
         <ul>
           {users.map((user, i) => (
-            <li key={i}>{user?.username}</li>
+            <li key={i}>{user}</li>
           ))}
         </ul>
       ) : (

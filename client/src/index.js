@@ -5,6 +5,11 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import AuthProvidor from "./context/AuthProvidor";
 import { BrowserRouter } from "react-router-dom";
+import { disableReactDevTools } from "@fvilers/disable-react-devtools";
+
+if (process.env.NODE_ENV === "production") {
+  disableReactDevTools();
+}
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

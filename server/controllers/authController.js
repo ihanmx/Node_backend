@@ -66,7 +66,7 @@ const handleLogin = async (req, res) => {
       // });
       //make sure not to save in memory to not be accessed by js so use cookie
       //you have to spicify http only so it is more secure and not available to js
-      return res.json({ accessToken, roles }); //for protecting routes
+      return res.json({ accessToken }); //for protecting routes
     } else {
       return res.status(401).json({ message: "Password incorrect" });
     }
